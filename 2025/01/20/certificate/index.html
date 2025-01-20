@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>為何網站顯示「連線不安全」？ | Welcome</title><meta name="author" content="Nian-Cheng Zou"><meta name="copyright" content="Nian-Cheng Zou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="了解 HTTPS 連線過程、憑證如何運作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="為何網站顯示「連線不安全」？">
+<meta property="og:url" content="https://nianchengz.github.io/2025/01/20/certificate/index.html">
+<meta property="og:site_name" content="Welcome">
+<meta property="og:description" content="了解 HTTPS 連線過程、憑證如何運作">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://nianchengz.github.io/img/category/tech-cover.jpg">
+<meta property="article:published_time" content="2025-01-20T15:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-20T16:25:29.893Z">
+<meta property="article:author" content="Nian-Cheng Zou">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nianchengz.github.io/img/category/tech-cover.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "為何網站顯示「連線不安全」？",
+  "url": "https://nianchengz.github.io/2025/01/20/certificate/",
+  "image": "https://nianchengz.github.io/img/category/tech-cover.jpg",
+  "datePublished": "2025-01-20T15:00:00.000Z",
+  "dateModified": "2025-01-20T16:25:29.893Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Nian-Cheng Zou",
+      "url": "https://nianchengz.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/basic/logo.png"><link rel="canonical" href="https://nianchengz.github.io/2025/01/20/certificate/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '為何網站顯示「連線不安全」？',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/basic/background.jpg);"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/category/tech-cover.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/basic/logo.png" alt="Logo"><span class="site-name">Welcome</span></a><a class="nav-page-title" href="/"><span class="site-name">為何網站顯示「連線不安全」？</span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">為何網站顯示「連線不安全」？</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2025-01-20T15:00:00.000Z" title="發表於 2025-01-20 23:00:00">2025-01-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2025-01-20T16:25:29.893Z" title="更新於 2025-01-21 00:25:29">2025-01-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Code-Curiosity/">Code &amp; Curiosity</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">瀏覽量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="為何網站顯示「連線不安全」？"><a href="#為何網站顯示「連線不安全」？" class="headerlink" title="為何網站顯示「連線不安全」？"></a>為何網站顯示「連線不安全」？</h1><div class="note default modern"><h2 id="這個警告到底代表什麼意思？"><a href="#這個警告到底代表什麼意思？" class="headerlink" title="這個警告到底代表什麼意思？"></a>這個警告到底代表什麼意思？</h2></div>
+<p><img src="/certificate/image.png"></p>
+<ul>
+<li>什麼叫做連線不安全?</li>
+<li>如何才能確保連線更安全？</li>
+</ul>
+<div class="note success flat"><p>關鍵就在於 <strong>憑證</strong><br>當你使用 http”<strong>s</strong>“ 連線時，就會要求網站提供憑證證明身份<br>並使用憑證加密通訊</p>
+</div>
+
+<div class="note default modern"><h2 id="什麼是憑證"><a href="#什麼是憑證" class="headerlink" title="什麼是憑證"></a>什麼是憑證</h2></div>
+
+<h4 id="憑證-是一種數位證書，用來驗證伺服器的身份並加密通信。"><a href="#憑證-是一種數位證書，用來驗證伺服器的身份並加密通信。" class="headerlink" title="憑證 是一種數位證書，用來驗證伺服器的身份並加密通信。"></a><strong>憑證</strong> 是一種數位證書，用來驗證伺服器的身份並加密通信。</h4><ul>
+<li>意義: 表示這個伺服器擁有”這個網域” 的所有權，也就是你連到正確的<ul>
+<li>舉例: 當你在網址打了 <a target="_blank" rel="noopener" href="https://youtube.com/">https://youtube.com</a><ol>
+<li>先向 DNS server 詢問 IP </li>
+<li>DNS 回 142.250.196.206</li>
+<li>連上該 IP 後，server 會使用憑證向你證明他就是本人，不是假冒的</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>內容<ul>
+<li>持有者 (e.g. youtube.com)</li>
+<li>公鑰: 用於加密通訊 </li>
+<li>簽發機構 (CA): 由哪個已知的可信任機構簽名<ul>
+<li>證明憑證可信的關鍵第三方</li>
+<li>e.g.: Let’s Encrypt</li>
+</ul>
+</li>
+<li>…</li>
+</ul>
+</li>
+<li>如何取得<ul>
+<li>向 CA 申請 (通常會使用 ACME protocol 與 CA 交流)</li>
+<li>證明所有權<ul>
+<li>HTTP-01 挑戰：在伺服器上放置特定的檔案，通過 HTTP 請求驗證所有權。</li>
+<li>DNS-01 挑戰：在 DNS 記錄中添加特定的 TXT 記錄</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>簡單來說，憑證就像是伺服器的「身份證」，保證您連接的是正確且可信的網站，而不是假冒的網站。</li>
+</ul>
+<div class="note default modern"><h2 id="有憑證-該網站安全"><a href="#有憑證-該網站安全" class="headerlink" title="有憑證 &#x3D; 該網站安全?"></a>有憑證 &#x3D; 該網站安全?</h2></div>
+
+
+<div class="note danger flat"><h3 id="不完全正確"><a href="#不完全正確" class="headerlink" title="不完全正確"></a>不完全正確</h3></div>
+
+<ul>
+<li>有憑證 –&gt; 該網站是你打的網站，沒有被中間人假冒<ul>
+<li>但不知道網站本身是否真正可信或合法</li>
+</ul>
+</li>
+<li>沒憑證 –&gt; 無法證明該網站是你查的<ul>
+<li>但有可能只是該網站沒申請憑證 或 憑證過期 而已</li>
+</ul>
+</li>
+</ul>
+<div class="note default modern"><h2 id="https-連線的流程"><a href="#https-連線的流程" class="headerlink" title="https 連線的流程"></a>https 連線的流程</h2></div>
+
+<ol>
+<li>輸入網址</li>
+<li>DNS 回傳 IP</li>
+<li>連上 IP 要求提供憑證</li>
+<li>browser 證實憑證可信後產生 session key</li>
+<li>雙方使用 session key 將接下來的通訊加密及解密<ul>
+<li>旁人即使攔截了也讀不到內容</li>
+</ul>
+</li>
+</ol>
+<div class="note danger flat"><h3 id="如何為自己的網站提供憑證"><a href="#如何為自己的網站提供憑證" class="headerlink" title="如何為自己的網站提供憑證"></a>如何為自己的網站提供憑證</h3></div>
+
+<ol>
+<li>註冊 domain name<ul>
+<li>憑證就是證明你的伺服器有某網域的擁有權，所以第一步當然要先有個域名</li>
+<li>通常要付費 (免費提供的都會特別醜)</li>
+<li>有些路由器服務商有提供註冊</li>
+</ul>
+</li>
+<li>設定 DNS 記錄<ul>
+<li>域名提供商 通常可以讓你設定該 domain name 要解析到哪個 IP</li>
+<li>DNS server 是分佈式的，設定好後，其它人查詢的過程就會把這個設定逐漸廣播到全世界</li>
+<li>DDNS<ul>
+<li>若你的伺服器沒有固定 IP，那你可以使用 DDNS (Dynamic Domain Name System)</li>
+<li>可以自動更新變動 IP 的 DNS 記錄</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>申請憑證 <ul>
+<li>向 CA 申請</li>
+<li>過程需驗證身份及伺服器所有權</li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://nianchengz.github.io">Nian-Cheng Zou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://nianchengz.github.io/2025/01/20/certificate/">https://nianchengz.github.io/2025/01/20/certificate/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://nianchengz.github.io" target="_blank">Welcome</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/category/tech-cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/basic/lifepicture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Nian-Cheng Zou</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">2</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%82%BA%E4%BD%95%E7%B6%B2%E7%AB%99%E9%A1%AF%E7%A4%BA%E3%80%8C%E9%80%A3%E7%B7%9A%E4%B8%8D%E5%AE%89%E5%85%A8%E3%80%8D%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">為何網站顯示「連線不安全」？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%99%E5%80%8B%E8%AD%A6%E5%91%8A%E5%88%B0%E5%BA%95%E4%BB%A3%E8%A1%A8%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">這個警告到底代表什麼意思？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E6%86%91%E8%AD%89"><span class="toc-number">1.2.</span> <span class="toc-text">什麼是憑證</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%86%91%E8%AD%89-%E6%98%AF%E4%B8%80%E7%A8%AE%E6%95%B8%E4%BD%8D%E8%AD%89%E6%9B%B8%EF%BC%8C%E7%94%A8%E4%BE%86%E9%A9%97%E8%AD%89%E4%BC%BA%E6%9C%8D%E5%99%A8%E7%9A%84%E8%BA%AB%E4%BB%BD%E4%B8%A6%E5%8A%A0%E5%AF%86%E9%80%9A%E4%BF%A1%E3%80%82"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">憑證 是一種數位證書，用來驗證伺服器的身份並加密通信。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E6%86%91%E8%AD%89-%E8%A9%B2%E7%B6%B2%E7%AB%99%E5%AE%89%E5%85%A8"><span class="toc-number">1.3.</span> <span class="toc-text">有憑證 &#x3D; 該網站安全?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%AD%A3%E7%A2%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">不完全正確</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#https-%E9%80%A3%E7%B7%9A%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">https 連線的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%82%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B6%B2%E7%AB%99%E6%8F%90%E4%BE%9B%E6%86%91%E8%AD%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">如何為自己的網站提供憑證</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/01/20/Certificate_/" title="為何網站顯示「連線不安全」？"><img src="/img/category/tech-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="為何網站顯示「連線不安全」？"/></a><div class="content"><a class="title" href="/2025/01/20/Certificate_/" title="為何網站顯示「連線不安全」？">為何網站顯示「連線不安全」？</a><time datetime="2025-01-20T15:00:00.000Z" title="發表於 2025-01-20 23:00:00">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/20/certificate/" title="為何網站顯示「連線不安全」？"><img src="/img/category/tech-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="為何網站顯示「連線不安全」？"/></a><div class="content"><a class="title" href="/2025/01/20/certificate/" title="為何網站顯示「連線不安全」？">為何網站顯示「連線不安全」？</a><time datetime="2025-01-20T15:00:00.000Z" title="發表於 2025-01-20 23:00:00">2025-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/16/blog_category_cover/" title="Blog 封面圖設定"><img src="/img/category/tech-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Blog 封面圖設定"/></a><div class="content"><a class="title" href="/2025/01/16/blog_category_cover/" title="Blog 封面圖設定">Blog 封面圖設定</a><time datetime="2025-01-16T14:30:00.000Z" title="發表於 2025-01-16 22:30:00">2025-01-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/15/helloworld/" title="helloworld"><img src="/img/category/food-cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="helloworld"/></a><div class="content"><a class="title" href="/2025/01/15/helloworld/" title="helloworld">helloworld</a><time datetime="2025-01-15T14:30:11.000Z" title="發表於 2025-01-15 22:30:11">2025-01-15</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2025/01/15/hello-world/" title="Hello World">Hello World</a><time datetime="2025-01-15T14:26:05.183Z" title="發表於 2025-01-15 22:26:05">2025-01-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Nian-Cheng Zou</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+
+  const disqusReset = conf => {
+    window.DISQUS && window.DISQUS.reset({
+      reload: true,
+      config: conf
+    })
+  }
+
+  const loadDisqus = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyDisqus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    window.disqus_identifier = isShuoshuo ? path : '/2025/01/20/certificate/'
+    window.disqus_url = isShuoshuo ? location.origin + path : 'https://nianchengz.github.io/2025/01/20/certificate/'
+
+    const disqus_config = function () {
+      this.page.url = disqus_url
+      this.page.identifier = disqus_identifier
+      this.page.title = '為何網站顯示「連線不安全」？'
+    }
+
+    if (window.DISQUS) disqusReset(disqus_config)
+    else {
+      const script = document.createElement('script')
+      script.src = 'https://.disqus.com/embed.js'
+      script.setAttribute('data-timestamp', +new Date())
+      document.head.appendChild(script)
+    }
+
+    btf.addGlobalFn('themeChange', () => disqusReset(disqus_config), 'disqus')
+  }
+
+  const getCount = async() => {
+    try {
+      const eleGroup = document.querySelector('#post-meta .disqus-comment-count')
+      if (!eleGroup) return
+      const cleanedLinks = eleGroup.href.replace(/#post-comment$/, '')
+
+      const res = await fetch(`https://disqus.com/api/3.0/threads/set.json?forum=&api_key=&thread:link=${cleanedLinks}`,{
+        method: 'GET'
+      })
+      const result = await res.json()
+
+      const count = result.response.length ? result.response[0].posts : 0
+      eleGroup.textContent = count
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Disqus' === 'Disqus'
+      ? window.shuoshuoComment = { loadComment: loadDisqus }
+      : window.loadOtherComment = loadDisqus
+    return
+  }
+
+  if ('Disqus' === 'Disqus' || !false) {
+    if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+    else {
+      loadDisqus()
+      
+    }
+  } else {
+    window.loadOtherComment = loadDisqus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
